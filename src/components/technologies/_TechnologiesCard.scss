@@ -1,0 +1,26 @@
+@import "../../scss/config";
+@import "../../scss/common";
+
+.technology-card {
+  @extend %card;
+  background: $bold-green;
+
+  &-container {
+    color: white;
+  }
+  &-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    .image-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}

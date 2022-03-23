@@ -1,0 +1,136 @@
+@import "../../scss/config";
+@import "../../scss/common";
+
+.project-card {
+  @extend %card;
+  background: $whitebg-card;
+  cursor: pointer;
+  transition: $transition;
+  &:hover {
+    box-shadow: $dark-onhover-gradient;
+    background: $lt-green;
+    transform: translateX(-30px);
+    transform: translateY(-30px);
+
+    .project-card-left {
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    img:hover {
+      transform: scale(1.1);
+    }
+
+    svg:hover {
+      transform: scale(0.8);
+    }
+  }
+
+  &-container {
+    color: white;
+  }
+
+  &-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    text-align: right;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      row-gap: 2rem;
+    }
+  }
+  .project-card-left {
+    transition: $transition;
+  }
+  .project-img {
+    width: 100%;
+    object-fit: cover;
+    transition: $transition;
+  }
+  &-left {
+    width: 100%;
+    flex-basis: 2;
+
+    // background: pink;
+  }
+  &-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    row-gap: 3rem;
+    color: $bold-green;
+    width: 100%;
+    flex-basis: 1;
+
+    // background: red;
+    // flex-basis: 3;
+
+    @media (max-width: 1024px) {
+      row-gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      row-gap: 2rem;
+    }
+    @media (max-width: 540px) {
+      gap: 1rem;
+    }
+    .title {
+      color: $bold-green;
+      font-size: $mini-lg-font;
+
+      @media (max-width: 1024px) {
+        font-size: $sm-font;
+      }
+      @media (max-width: 768px) {
+        font-size: $xsm-font;
+      }
+      @media (max-width: 540px) {
+        font-size: $xxsm-font;
+      }
+    }
+    .subtitle {
+      text-transform: $uppercase;
+      font-size: $sm-font;
+      font-weight: $md-weight;
+
+      @media (max-width: 1024px) {
+        font-size: $sm-font;
+      }
+      @media (max-width: 768px) {
+        font-size: $xsm-font;
+      }
+      @media (max-width: 540px) {
+        font-size: $xxsm-font;
+      }
+    }
+
+    .card-img {
+      display: flex;
+      gap: 1rem;
+
+      @media (max-width: 540px) {
+        gap: 0.5rem;
+      }
+
+      svg {
+        transition: $transition;
+
+        width: 40px;
+        height: 40px;
+
+        @media (max-width: 768px) {
+          width: 35px;
+          height: 35px;
+        }
+        @media (max-width: 540px) {
+          width: $xsm-font;
+          height: $xsm-font;
+        }
+      }
+    }
+  }
+}
