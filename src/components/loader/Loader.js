@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { ReactComponent as Logo } from "../../assets/svg/logo.svg";
 
 const portfolioVariants = {
-  hidden: {},
+  hidden: {
+    top: 0,
+  },
   visible: {
-    y: "-100vh",
+    top: "-100vh",
     transition: {
       delay: 1,
       transition: 1,
@@ -62,6 +64,9 @@ const Loader = () => {
       whileInView="visible"
       viewport={{ once: true, amount: 0.8 }}
       variants={portfolioVariants}
+      data-scroll
+      data-scroll-sticky
+      data-scroll-target="#portfolio"
     >
       <div className="loader-container">
         <div className="portfolio-container">

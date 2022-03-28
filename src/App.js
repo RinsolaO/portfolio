@@ -6,7 +6,6 @@ import TechnologiesCard from "./components/technologies/TechnologiesCard";
 import Header from "./components/header/Header";
 import NavMenu from "./components/nav-menu/NavMenu";
 import LocomotiveScroll from "locomotive-scroll";
-// import locomotiveScroll from "locomotive-scroll";
 import Meta from "./components/Meta";
 import { motion } from "framer-motion";
 import About from "./components/about-me/About";
@@ -42,78 +41,50 @@ const App = () => {
   const scrollRef = useRef(null);
 
   useEffect(() => {
+    // Storing To Local Storage
     localStorage.setItem("darkmode", JSON.stringify(darkMode));
+
+    // Timeout For Loader
 
     setTimeout(() => {
       setisLoading(!isLoading);
     }, 6000);
 
-    const cursor = document.getElementById("cursor");
-    document.addEventListener("mousemove", (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      cursor.style.left = x + "px";
-      cursor.style.top = y + "px";
-    });
+    // Custom Cursor
+
+    // const cursor = document.getElementById("cursor");
+    // document.addEventListener("mousemove", (e) => {
+    //   const x = e.clientX;
+    //   const y = e.clientY;
+    //   cursor.style.left = x + "px";
+    //   cursor.style.top = y + "px";
+    // });
+
+    // Initializing Locomotive Scroll
 
     if (!scrollRef.current) return;
 
     const scrollEl = new LocomotiveScroll({
       el: scrollRef.current,
       smooth: true,
-      multiplier: 0.65,
-      reloadOnContextChange: true,
+      multiplier: 0.8,
       inertia: 0.3,
-      smartphone: {
+    });
+
+    if (window.innerWidth <= 768) {
+      const scroll = new LocomotiveScroll({
+        el: document.querySelector("[data-scroll-container]"),
         smooth: true,
-      },
+        direction: "vertical",
+      });
+    }
+    // Updating Page's Height W/ Locomotive Scroll
+
+    window.addEventListener("load", () => {
+      imagesLoaded(document.querySelector("img"), { background: true }, () => {
+        scrollEl.update();
+      });
     });
-
-    // Update Locomotive Scroll
-    // window.addEventListener("load", () => {
-    //   imagesLoaded(document.querySelector("img"), { background: true }, () => {
-    //     scrollEl.update();
-    //   });
-    // });
-    setTimeout(() => {
-      imagesLoaded(
-        document.querySelector("img"),
-        { background: true },
-        () => {
-          scrollEl.update();
-        },
-        1000
-      );
-    });
-    console.log("loaded", scrollEl);
-
-    // // update Locomotive Scroll
-    // window.addEventListener("load", function (event) {
-    //   // scrollEl.destroy();
-    //   // setTimeout(function () {
-    //   //   scrollEl.init();
-    //   // }, 100);
-    //   // imagesloaded(scrollRef, { background: true }, () => {
-    //   //   scrollEl.update();
-    //   // });
-    //   setTimeout(() => {
-    //     scrollEl.destroy();
-    //   }, 0);
-    //   setTimeout(() => {
-    //     scrollEl.init();
-    //   }, 50);
-    //   setTimeout(() => {
-    //     scrollEl.update();
-    //   }, 1000);
-    // });
-
-    // update locomotive scroll
-    // window.addEventListener("load", () => {
-    //   let image = document.querySelector("img");
-    //   // @ts-ignore
-    //   const isLoaded = image?.complete && image?.naturalHeight !== 0;
-    //   scrollEl.update();
-    // });
   }, [darkMode]);
 
   return (
@@ -127,10 +98,10 @@ const App = () => {
         className={`portfolio-main-container ${
           darkMode ? "dark-mode" : "light-mode"
         }`}
+        id="portfolio"
       >
         <Meta />
         <Loader />
-        <div id="cursor"></div>
         <Header
           darkMode={darkMode}
           active={active}
@@ -167,7 +138,7 @@ const App = () => {
           data-scroll
           data-scroll-direction="horizontal"
           data-scroll-position="top"
-          data-scroll-speed=".3"
+          data-scroll-speed=".5"
         >
           <div className="technologies-container">
             <TechnologiesCard />

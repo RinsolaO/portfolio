@@ -51,7 +51,7 @@ const Footer = ({ darkMode }) => {
         <div className="footer-container">
           <motion.div className="footer-content" variants={footerVariants}>
             <motion.span variants={textVariants} className="footer-title">
-              SOLD YET ? LET’S COLLABORATE
+              NEED A WEB DEVELOPER ? LET’S COLLABORATE
             </motion.span>
             <motion.a
               variants={textVariants}

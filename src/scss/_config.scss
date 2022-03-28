@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Fruktur&family=Raleway:wght@400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&family=Fruktur&family=Raleway:wght@400;500;600;700;800;900&family=Sarala:wght@400;700&family=Solway:wght@400;500;700;800&family=Wellfleet&display=swap");
 
 // BASE COLORS
 
@@ -58,6 +58,9 @@ $dark-onhover-gradient: 15px 15px 7px -5px #87bba2;
 // FONT
 $primary-font: "Raleway", sans-serif;
 $loader-font: "Finger Paint", cursive;
+$sol-font: "Solway", serif;
+$sarala-font: "Sarala", sans-serif;
+$wellfleet-font: "Wellfleet", cursive;
 
 // FONT-SIZES
 $xxlg-font: 75px;
@@ -78,6 +81,7 @@ $capitalize: capitalize;
 $xb-weight: 800;
 $bd-weight: 700;
 $md-weight: 500;
+$sm-weight: 400;
 
 // TRANSITION
 

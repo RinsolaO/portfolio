@@ -4,7 +4,6 @@
 .project-card {
   @extend %card;
   background: $whitebg-card;
-  cursor: pointer;
   transition: $transition;
   &:hover {
     box-shadow: $dark-onhover-gradient;

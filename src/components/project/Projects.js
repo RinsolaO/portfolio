@@ -58,7 +58,7 @@ const Projects = ({ isLoading }) => {
               data-scroll
               data-scroll-direction="horizontal"
               data-scroll-position="top"
-              data-scroll-speed="-.3"
+              data-scroll-speed="-.5"
             >
               <ProjectCard
                 image={Blaq}
@@ -76,7 +76,7 @@ const Projects = ({ isLoading }) => {
               data-scroll
               data-scroll-direction="horizontal"
               data-scroll-position="top"
-              data-scroll-speed=".3"
+              data-scroll-speed=".5"
             >
               <ProjectCard
                 image={Incog}
@@ -92,7 +92,7 @@ const Projects = ({ isLoading }) => {
               data-scroll
               data-scroll-direction="horizontal"
               data-scroll-position="top"
-              data-scroll-speed="-.3"
+              data-scroll-speed="-.5"
             >
               <ProjectCard
                 image={Bytestacks}

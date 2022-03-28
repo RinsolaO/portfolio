@@ -6,20 +6,13 @@ import { motion } from "framer-motion";
 
 const cardVariants = {
   hidden: {
-    opacity: 0,
-
     y: 50,
   },
   visible: {
-    opacity: 1,
-
     y: 0,
     transition: {
-      // delay: 0.2,
       when: "beforeChildren",
-      type: "spring",
-      stiffness: "30",
-      ease: "easeIn",
+      duration: ".1",
       staggerChildren: 0.4,
     },
   },

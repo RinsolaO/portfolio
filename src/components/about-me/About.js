@@ -60,7 +60,7 @@ const About = ({ isLoading }) => {
             oluwaferanmi olatunji
           </motion.span>
           <motion.span variants={childVariants} className="portfolio-footer">
-            I am a self taught frontend developer based in Lagos, Nigeria, I
+            I am a self taught frontend developer based in Lagos, Nigeria. I
             enjoy creating beautiful, responsive, functional and interactive
             user interfaces.
           </motion.span>

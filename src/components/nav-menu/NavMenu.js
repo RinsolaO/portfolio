@@ -8,22 +8,38 @@ import { ReactComponent as Instagram } from "../../assets/svg/instagram.svg";
 import { motion } from "framer-motion";
 
 const menuVariants = {
-  hidden: {
-    y: "-100vh",
-  },
   visible: {
-    y: 0,
+    top: 0,
     transition: {
-      duration: 0.5,
-      // delay: 0.5,
+      duration: 0.45,
+      when: "beforeChildren",
+      staggerChildren: 0.5,
     },
   },
   exit: {
-    y: "-100vh",
-
+    top: "-100vh",
     transition: {
-      duration: 0.5,
-      delay: 0.5,
+      duration: 0.45,
+      delay: 0.2,
+      when: "afterChildren",
+    },
+  },
+};
+
+const textVariants = {
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.45,
+    },
+  },
+  exit: {
+    y: 100,
+    opacity: 0,
+    transition: {
+      duration: 0.45,
+      delay: 0.2,
     },
   },
 };
@@ -32,8 +48,9 @@ const NavMenu = ({ darkMode, active, setDarkMode, setActive }) => {
   return (
     <>
       <motion.div
-        initial="hidden"
-        exit="exit"
+        data-scroll
+        data-scroll-sticky
+        data-scroll-target="#portfolio"
         variants={menuVariants}
         animate={active ? "visible" : "exit"}
         className={`nav-menu ${active ? "active" : ""}`}
@@ -49,10 +66,11 @@ const NavMenu = ({ darkMode, active, setDarkMode, setActive }) => {
           <div className="footer">
             <div className="footer-container">
               <div className="footer-content">
-                <motion.span variants={menuVariants} className="footer-title">
+                <motion.span className="footer-title" variants={textVariants}>
                   GOT AN IDEA ? LET’S COLLABORATE
                 </motion.span>
-                <a
+                <motion.a
+                  variants={textVariants}
                   href="mailto:feranmiayomide@gmail.com"
                   className="message-box"
                 >
@@ -62,9 +80,9 @@ const NavMenu = ({ darkMode, active, setDarkMode, setActive }) => {
                   ) : (
                     <Email stroke="#C9E4CA" />
                   )}
-                </a>
+                </motion.a>
 
-                <div className="social-media">
+                <motion.div variants={textVariants} className="social-media">
                   <a
                     href="https://www.linkedin.com/in/oluwaferanmi-olatunji-168449208/"
                     className="social-link"
@@ -113,7 +131,7 @@ const NavMenu = ({ darkMode, active, setDarkMode, setActive }) => {
                       <Instagram fill="#C9E4CA" />
                     )}
                   </a>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
