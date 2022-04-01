@@ -21,6 +21,14 @@
       gap: 3rem;
       align-items: center;
       justify-content: center;
+
+      svg {
+        transition: $transition;
+        &:hover {
+          transform: translateY(-6px);
+          mix-blend-mode: hard-light;
+        }
+      }
     }
   }
 }

@@ -14,21 +14,40 @@ import Footer from "./components/footer/Footer";
 import Loader from "./components/loader/Loader";
 import imagesLoaded from "imagesloaded";
 
-const arrowVariants = {
-  hidden: {
-    y: 100,
-    opacity: 0,
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      delay: 0.2,
-      duration: 0.3,
-      ease: "easeInOut",
-    },
-  },
-};
+const arrowVariants =
+  window.innerWidth <= 768
+    ? {
+        hidden: {
+          y: 100,
+          opacity: 0,
+        },
+        visible: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: 6.3,
+            duration: 0.4,
+            ease: "easeIn",
+            type: "spring",
+            stiffness: 200,
+          },
+        },
+      }
+    : {
+        hidden: {
+          y: 100,
+          opacity: 0,
+        },
+        visible: {
+          y: 0,
+          opacity: 1,
+          transition: {
+            delay: 0.2,
+            duration: 0.3,
+            ease: "easeInOut",
+          },
+        },
+      };
 
 const App = () => {
   const [darkMode, setDarkMode] = useState(() => {
@@ -119,7 +138,7 @@ const App = () => {
 
         <motion.span
           initial="hidden"
-          whileInView={!isLoading && "visible"}
+          whileInView={"visible"}
           variants={arrowVariants}
           className="down-arrow"
         >

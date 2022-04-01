@@ -20,24 +20,43 @@ const childVariants = {
   },
 };
 
-const textVariants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.7,
-    },
-  },
-};
+const textVariants =
+  window.innerWidth <= 768
+    ? {
+        hidden: {
+          opacity: 0,
+          y: 100,
+        },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: {
+            delay: 6,
+            duration: 0.4,
+            ease: "easeIn",
+            type: "spring",
+            stiffness: 200,
+          },
+        },
+      }
+    : {
+        hidden: {
+          opacity: 0,
+        },
+        visible: {
+          opacity: 1,
+          transition: {
+            duration: 0.7,
+          },
+        },
+      };
 
 const Projects = ({ isLoading }) => {
   return (
     <>
       <motion.section
         initial="hidden"
-        whileInView={!isLoading && "visible"}
+        whileInView={"visible"}
         className="project"
       >
         <div className="project-container">
